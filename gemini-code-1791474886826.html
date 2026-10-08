@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080b12">
+<meta name="description" content="장애슬 | 서경대학교 스포츠앤테크놀로지전공 | 스포츠산업 포트폴리오">
+<title>JANG AE SEUL — Sports Industry Portfolio</title>
+<style>
+:root{
+  --bg:#080b12;
+  --panel:#101622;
+  --panel2:#131c2b;
+  --ink:#f5f7fb;
+  --muted:#a5afc1;
+  --blue:#1688ff;
+  --blue2:#4eb6ff;
+  --line:rgba(180,202,236,.16);
+  --max:1200px;
+  --nav:76px;
+  --ease:cubic-bezier(.16, 1, .3, 1);
+}
+*{box-sizing:border-box}
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:calc(var(--nav) + 20px);
+}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR","Apple SD Gothic Neo",sans-serif;
+  line-height:1.65;
+  letter-spacing:-.025em;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-1;
+  background:radial-gradient(ellipse at 88% 4%,rgba(0,105,255,.15),transparent 32%),radial-gradient(ellipse at 5% 55%,rgba(0,105,255,.08),transparent 34%);
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+::selection{background:#1688ff;color:white}
+
+/* Progress Bar */
+.progress{position:fixed;top:0;left:0;width:0;height:3px;background:linear-gradient(90deg,var(--blue),#6ed4ff);z-index:1200;transition:width .1s linear}
+
+/* Header & Fixed Navigation */
+header{
+  height:var(--nav);
+  position:fixed;
+  z-index:1100;
+  inset:0 0 auto;
+  background:rgba(8,11,18,.85);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  width:min(var(--max),calc(100% - 48px));
+  height:100%;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  gap:28px;
+}
+.wordmark{font-size:13px;font-weight:850;letter-spacing:.08em;white-space:nowrap}
+.wordmark small{display:block;color:var(--blue2);font-size:9px;letter-spacing:.2em;font-weight:700}
+.nav-links{margin-left:auto;display:flex;gap:22px;align-items:center}
+.nav-links a{font-size:11px;color:#bac5d6;white-space:nowrap;transition:color .25s;position:relative}
+.nav-links a:hover,.nav-links a.active{color:white}
+.nav-links a:after{
+  content:"";
+  position:absolute;
+  bottom:-6px;
+  left:0;
+  width:0%;
+  height:2px;
+  background:var(--blue);
+  transition:width .3s var(--ease);
+}
+.nav-links a.active:after, .nav-links a:hover:after{
+  width:100%;
+}
+.menu-btn{display:none;background:transparent;color:white;border:1px solid var(--line);border-radius:999px;padding:8px 12px;cursor:pointer}
+
+/* Main Layout */
+main{padding-top:var(--nav)}
+.wrap{width:min(var(--max),calc(100% - 48px));margin:auto}
+section{padding:112px 0;border-bottom:1px solid var(--line);scroll-margin-top:calc(var(--nav) + 14px)}
+.kicker{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--blue2);font-weight:800}
+h1,h2,h3,p{margin-top:0}
+h1{font-size:clamp(54px,9.6vw,126px);line-height:.92;letter-spacing:-.085em;margin:25px 0 24px;font-weight:850}
+h2{font-size:clamp(34px,5.4vw,64px);line-height:1.05;letter-spacing:-.07em;margin:13px 0 20px}
+h3{font-size:19px;line-height:1.35;letter-spacing:-.04em;margin-bottom:12px}
+p{color:#c5cedc}
+.muted{color:var(--muted)}
+.blue{color:var(--blue2)}
+.small{font-size:12px}
+
+/* Hero Section */
+.hero{min-height:calc(100vh - var(--nav));display:flex;align-items:center;padding:80px 0 96px;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:8vw}
+.hero h1 span{display:block;color:var(--blue);font-size:.46em;letter-spacing:.03em;margin-bottom:17px}
+.hero .tagline{font-size:clamp(17px,2vw,23px);max-width:610px;color:#dbe4f2;margin-bottom:28px}
+.hero-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+.pill{border:1px solid var(--line);border-radius:999px;padding:8px 13px;font-size:11px;color:#c5d2e4;background:rgba(16,22,34,.6)}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:12px 20px;border-radius:6px;border:1px solid var(--line);font-size:12px;font-weight:750;transition:transform .3s var(--ease),background .3s,border-color .3s;cursor:pointer}
+.btn:hover{transform:translateY(-4px);border-color:var(--blue);box-shadow:0 8px 20px rgba(22,136,255,.2)}
+.btn.primary{background:var(--blue);border-color:var(--blue);color:white}
+
+.portrait-wrap{position:relative;max-width:390px;justify-self:end;width:100%;aspect-ratio:.78;isolation:isolate}
+.portrait-wrap:before{content:"";position:absolute;inset:-17px 18px 18px -17px;border:1px solid rgba(48,151,255,.75);z-index:-1;transition:transform .4s var(--ease)}
+.portrait-wrap:hover:before{transform:translate(4px, -4px)}
+.portrait-wrap:after{content:"";position:absolute;width:170px;height:170px;border-radius:50%;background:rgba(0,109,255,.24);filter:blur(35px);right:-38px;top:12%;z-index:-2}
+.portrait{width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block;border-radius:4px;filter:saturate(.95);background:#151d2a;border:1px solid var(--line)}
+.portrait-label{position:absolute;bottom:0;left:0;right:0;padding:30px 20px 17px;background:linear-gradient(transparent,rgba(3,7,14,.92));font-size:10px;letter-spacing:.15em;color:white}
+.hero-index{position:absolute;right:24px;bottom:26px;font-size:10px;letter-spacing:.18em;color:#60718b;writing-mode:vertical-rl}
+
+/* Section Common */
+.section-head{display:grid;grid-template-columns:.75fr 1.25fr;gap:40px;align-items:start;margin-bottom:48px}
+.section-head p{max-width:680px;margin:0}
+
+/* About Grid */
+.intro-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.info-card,.project-card,.credential,.skill-card,.experience-card{
+  background:linear-gradient(145deg,rgba(20,29,44,.9),rgba(12,17,27,.8));
+  border:1px solid var(--line);
+  border-radius:8px;
+  transition:transform .4s var(--ease), border-color .4s, box-shadow .4s;
+}
+.info-card:hover, .credential:hover, .skill-card:hover {
+  transform:translateY(-6px);
+  border-color:rgba(22,136,255,.4);
+  box-shadow:0 12px 25px rgba(0,0,0,.3);
+}
+.info-card{padding:25px;min-height:190px}
+.card-no{color:var(--blue2);font-size:11px;letter-spacing:.16em;font-weight:800;margin-bottom:23px}
+.info-card p{font-size:13px;margin-bottom:0}
+.info-card h3{font-size:17px}
+.interest-list{display:flex;flex-wrap:wrap;gap:9px;margin-top:17px}
+.tag{font-size:11px;padding:7px 10px;border:1px solid var(--line);border-radius:3px;color:#d5deec;background:rgba(255,255,255,.02)}
+
+/* Timeline & Work Experience */
+.timeline{display:
