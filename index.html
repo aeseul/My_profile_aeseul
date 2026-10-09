@@ -168,6 +168,14 @@ footer{padding:28px 0 38px}.footer-inner{display:flex;justify-content:space-betw
   .portrait-wrap .profile-photo{min-height:300px}
 }
 
+
+/* Reliable hero portrait frame */
+.portrait-wrap{width:100%;max-width:390px;aspect-ratio:4/5;position:relative;justify-self:end}
+#profilePhoto{display:block;width:100%;height:100%;min-height:360px;object-fit:cover;object-position:center 20%;position:relative;z-index:1;background:#f1f4f1}
+#profilePhotoFallback{position:absolute;inset:0;z-index:0;display:none}
+.portrait-wrap .portrait-label{z-index:2}
+@media(max-width:760px){.portrait-wrap{justify-self:center;width:82%;max-width:320px}#profilePhoto{min-height:300px}}
+
 </style>
 </head>
 <body>
@@ -188,15 +196,15 @@ footer{padding:28px 0 38px}.footer-inner{display:flex;justify-content:space-betw
 <div class="hero-actions"><a class="btn primary" href="#projects">프로젝트 보기 <span aria-hidden="true">↘</span></a><a class="btn" href="#contact">Contact</a></div></div>
 <div class="portrait-wrap slide-up">
 <img
-  class="portrait asset-image profile-photo"
-  src="./%EC%A6%9D%EB%AA%85%EC%82%AC%EC%A7%84.jpeg"
+  id="profilePhoto"
+  class="portrait profile-photo"
+  src="/My_profile_aeseul/%EC%A6%9D%EB%AA%85%EC%82%AC%EC%A7%84.jpeg"
   alt="장애슬 프로필 사진"
   loading="eager"
   fetchpriority="high"
   decoding="async"
-  onerror="this.onerror=null;this.src='./증명사진.jpeg';"
 >
-<div class="image-fallback portrait-fallback">프로필 사진<br><small>증명사진.jpeg 파일을 확인해 주세요.</small></div>
+<div id="profilePhotoFallback" class="image-fallback portrait-fallback">프로필 사진을 불러오는 중…</div>
 <div class="portrait-label">JANG AE SEUL · PROFILE</div>
 </div></div><div class="hero-index">PORTFOLIO / 2026</div></section>
 
@@ -355,6 +363,45 @@ function closeModal(){
   modal.classList.remove('open');
   img.src='';
 }
+
+// GitHub Pages profile-photo loader.
+// The image file must be committed beside index.html in the repository root.
+(function loadProfilePhoto(){
+  const photo = document.getElementById('profilePhoto');
+  const fallback = document.getElementById('profilePhotoFallback');
+  if(!photo) return;
+
+  const candidates = [
+    '/My_profile_aeseul/%EC%A6%9D%EB%AA%85%EC%82%AC%EC%A7%84.jpeg',
+    './%EC%A6%9D%EB%AA%85%EC%82%AC%EC%A7%84.jpeg',
+    './증명사진.jpeg',
+    '/My_profile_aeseul/증명사진.jpeg'
+  ];
+  let index = 0;
+  photo.style.display = 'block';
+
+  photo.addEventListener('load', () => {
+    photo.style.display = 'block';
+    if(fallback) fallback.style.display = 'none';
+  });
+
+  photo.addEventListener('error', () => {
+    index += 1;
+    if(index < candidates.length){
+      photo.src = candidates[index];
+      return;
+    }
+    photo.style.display = 'none';
+    if(fallback){
+      fallback.style.display = 'grid';
+      fallback.innerHTML = '프로필 사진을 찾을 수 없습니다.<br><small>GitHub 저장소에서 증명사진.jpeg 파일이 index.html과 같은 위치에 있는지 확인해 주세요.</small>';
+    }
+  });
+
+  // Trigger retry logic even if the first URL fails before listener attachment.
+  photo.src = candidates[0];
+})();
+
 </script>
 </body>
 </html>
