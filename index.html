@@ -89,6 +89,10 @@ h3{font-size:19px;line-height:1.35;letter-spacing:-.04em;margin-bottom:12px}p{co
 .proof-gallery{margin-top:24px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .proof-item{position:relative;aspect-ratio:1.414;border-radius:6px;overflow:hidden;border:1px solid var(--line);background:#090d14;cursor:pointer}
 .proof-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease);display:block}
+.document-proof{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;text-align:center;padding:12px;color:#dce8fa;text-decoration:none;background:linear-gradient(145deg,#172338,#0b1019)}
+.document-icon{display:grid;place-items:center;width:46px;height:54px;border:1px solid rgba(78,182,255,.6);border-radius:5px;color:var(--blue2);font-size:12px;font-weight:850;letter-spacing:.08em}
+.document-title{font-size:12px;font-weight:750}
+.document-proof .proof-caption{transform:none;background:linear-gradient(transparent,rgba(0,0,0,.65));}
 .proof-item:hover img{transform:scale(1.08)}
 .proof-caption{position:absolute;inset:auto 0 0 0;padding:12px 10px 8px;background:linear-gradient(transparent,rgba(0,0,0,.95));font-size:11px;color:white;text-align:center;font-weight:600;transform:translateY(4px);transition:transform .3s var(--ease)}
 .proof-item:hover .proof-caption{transform:translateY(0)}
@@ -133,8 +137,8 @@ footer{padding:28px 0 38px}.footer-inner{display:flex;justify-content:space-betw
 <div class="hero-meta"><span class="pill">서경대학교</span><span class="pill">스포츠앤테크놀로지전공</span><span class="pill">스포츠산업 꿈나무</span></div>
 <div class="hero-actions"><a class="btn primary" href="#projects">프로젝트 보기 <span aria-hidden="true">↘</span></a><a class="btn" href="#contact">Contact</a></div></div>
 <div class="portrait-wrap slide-up">
-<img class="portrait asset-image" data-src="assets/profile-photo.jpg" src="assets/profile-photo.jpg" alt="장애슬 프로필 증명사진">
-<div class="image-fallback portrait-fallback">프로필 사진<br><small>assets/profile-photo.jpg</small></div>
+<img class="portrait asset-image" data-src="./증명사진.jpeg" src="./증명사진.jpeg" alt="장애슬 프로필 증명사진">
+<div class="image-fallback portrait-fallback">프로필 사진<br><small>증명사진.jpeg 파일을 확인해 주세요.</small></div>
 <div class="portrait-label">JANG AE SEUL · PROFILE</div>
 </div></div><div class="hero-index">PORTFOLIO / 2026</div></section>
 
@@ -179,17 +183,17 @@ footer{padding:28px 0 38px}.footer-inner{display:flex;justify-content:space-betw
 <h3>인천유나이티드<br>스포츠산업 실무 과정</h3><p class="summary">인천유나이티드가 제시한 과제를 선정하여 전문가 멘토와 협력하며 기획안을 수립하고 기획 과제를 완성한 실무 과정입니다.</p>
 <ul><li>총 200명이 4개 팀으로 나누어 참여</li><li>중간 제안 발표 및 피드백을 통한 기획안 완성도 제고</li><li>자료 조사 및 흑백 PPT visual 기획 제작 담당</li></ul>
 <span class="award">인천유나이티드 스포츠산업실무 최우수상</span>
-<div class="proof-gallery">
-<div class="proof-item" onclick="openModal('assets/incheon-certificate.jpg','인천유나이티드 수료증')"><img class="asset-image" src="assets/incheon-certificate.jpg" alt="인천유나이티드 수료증"><div class="image-fallback">수료증 사진<br><small>assets/incheon-certificate.jpg</small></div><div class="proof-caption">수료증</div></div>
-<div class="proof-item" onclick="openModal('assets/incheon-activity.jpg','인천유나이티드 실무활동인증서')"><img class="asset-image" src="assets/incheon-activity.jpg" alt="인천유나이티드 실무활동인증서"><div class="image-fallback">실무활동인증서 사진<br><small>assets/incheon-activity.jpg</small></div><div class="proof-caption">실무활동인증서</div></div>
-<div class="proof-item" onclick="openModal('assets/incheon-award.jpg','인천유나이티드 최우수상 상장')"><img class="asset-image" src="assets/incheon-award.jpg" alt="인천유나이티드 최우수상 상장"><div class="image-fallback">최우수상 상장 사진<br><small>assets/incheon-award.jpg</small></div><div class="proof-caption">최우수상 상장</div></div>
+<div class="proof-gallery document-gallery">
+<a class="proof-item document-proof" href="./수료증_장애슬.pdf" target="_blank" rel="noopener noreferrer" aria-label="수료증 PDF 열기"><span class="document-icon">PDF</span><span class="document-title">수료증</span><span class="proof-caption">수료증 보기 ↗</span></a>
+<a class="proof-item document-proof" href="./실무활동인증서_장애슬.pdf" target="_blank" rel="noopener noreferrer" aria-label="실무활동인증서 PDF 열기"><span class="document-icon">PDF</span><span class="document-title">실무활동인증서</span><span class="proof-caption">실무활동인증서 보기 ↗</span></a>
+<a class="proof-item document-proof" href="./상장_장애슬.pdf" target="_blank" rel="noopener noreferrer" aria-label="최우수상 상장 PDF 열기"><span class="document-icon">PDF</span><span class="document-title">최우수상 상장</span><span class="proof-caption">상장 보기 ↗</span></a>
 </div>
 <div class="project-reflection"><strong>활동을 통해 배운 점</strong><p>첫 대외활동을 통해 프로젝트 진행 스케줄 관리 및 체계적인 자료 조사, 시각적 기획안 완성 과정을 터득했습니다.</p></div></article>
 
 <article class="project-card slide-up" id="fcseoul-project"><div class="project-top"><span class="project-index">PROJECT 02</span><span class="small muted">SPORTS MARKETING</span></div>
 <h3>FC서울<br>스포츠마케팅 산학협력 프로젝트</h3><p class="summary">FC서울 홈경기 모객 프로젝트를 직접 운영하고, 수집된 데이터를 바탕으로 관중 참여 및 신규 관중 증대 전략을 경쟁 PT로 발표했습니다.</p>
 <ul><li>9월 & 11월 홈경기 모객 프로젝트 기획 및 운영</li><li>모객 결과 데이터 분석 및 비교 결과 보고서 작성</li><li>대학생 및 외국인 타깃 신규 관중 증대 전략 경쟁 PT</li></ul>
-<div class="proof-gallery" style="grid-template-columns:1fr"><div class="proof-item" style="aspect-ratio:2.1" onclick="openModal('assets/fcseoul-poster.jpg','FC서울 스포츠마케팅 프로젝트 포스터')"><img class="asset-image" src="assets/fcseoul-poster.jpg" alt="FC서울 산학협력 포스터"><div class="image-fallback">FC서울 프로젝트 포스터<br><small>assets/fcseoul-poster.jpg</small></div><div class="proof-caption">FC서울 프로젝트 포스터</div></div></div>
+<div class="proof-gallery" style="grid-template-columns:1fr"><div class="proof-item" style="aspect-ratio:2.1" onclick="openModal('./IMG_0213.jpg','FC서울 스포츠마케팅 프로젝트 자료')"><img class="asset-image" src="./IMG_0213.jpg" alt="FC서울 산학협력 프로젝트 자료"><div class="image-fallback">FC서울 프로젝트 자료<br><small>IMG_0213.jpg 파일을 확인해 주세요.</small></div><div class="proof-caption">FC서울 프로젝트 포스터</div></div></div>
 <div class="project-reflection"><strong>담당 역할 및 시사점</strong><p>단순 노출을 넘어 사람들의 참여를 유도하는 핵심 셀링포인트의 중요성을 배웠으며, 효율적인 역할 분담과 데이터 기반 분석 역량을 길렀습니다.</p></div></article>
 </div></div></section>
 
