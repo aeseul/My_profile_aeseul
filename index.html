@@ -138,6 +138,36 @@ footer{padding:28px 0 38px}.footer-inner{display:flex;justify-content:space-betw
   .pdf-preview{height:240px}
 }
 
+
+/* Hero profile photo: explicitly sized and eagerly loaded */
+.portrait-wrap{
+  position:relative;
+  width:100%;
+  max-width:390px;
+  aspect-ratio:4 / 5;
+  justify-self:end;
+  overflow:visible;
+}
+.portrait-wrap .profile-photo{
+  position:relative;
+  z-index:1;
+  display:block;
+  width:100%;
+  height:100%;
+  min-height:360px;
+  object-fit:cover;
+  object-position:center 20%;
+  opacity:1;
+  visibility:visible;
+  background:#f1f4f1;
+}
+.portrait-wrap .portrait-fallback{z-index:0}
+.portrait-wrap .portrait-label{z-index:2}
+@media(max-width:760px){
+  .portrait-wrap{justify-self:center;max-width:320px;width:82%}
+  .portrait-wrap .profile-photo{min-height:300px}
+}
+
 </style>
 </head>
 <body>
@@ -157,7 +187,15 @@ footer{padding:28px 0 38px}.footer-inner{display:flex;justify-content:space-betw
 <div class="hero-meta"><span class="pill">서경대학교</span><span class="pill">스포츠앤테크놀로지전공</span><span class="pill">스포츠산업 꿈나무</span></div>
 <div class="hero-actions"><a class="btn primary" href="#projects">프로젝트 보기 <span aria-hidden="true">↘</span></a><a class="btn" href="#contact">Contact</a></div></div>
 <div class="portrait-wrap slide-up">
-<img class="portrait asset-image" data-src="./증명사진.jpeg" src="./증명사진.jpeg" alt="장애슬 프로필 증명사진">
+<img
+  class="portrait asset-image profile-photo"
+  src="./%EC%A6%9D%EB%AA%85%EC%82%AC%EC%A7%84.jpeg"
+  alt="장애슬 프로필 사진"
+  loading="eager"
+  fetchpriority="high"
+  decoding="async"
+  onerror="this.onerror=null;this.src='./증명사진.jpeg';"
+>
 <div class="image-fallback portrait-fallback">프로필 사진<br><small>증명사진.jpeg 파일을 확인해 주세요.</small></div>
 <div class="portrait-label">JANG AE SEUL · PROFILE</div>
 </div></div><div class="hero-index">PORTFOLIO / 2026</div></section>
